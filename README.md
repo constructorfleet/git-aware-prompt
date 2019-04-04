@@ -1,7 +1,8 @@
 # Git Aware Prompt
 
 Based on https://github.com/jimeh/git-aware-prompt
-With improved statuses from https://github.com/Teagan42/GitAwareBash.git
+
+Improved git status flags based on: https://github.com/Teagan42/GitAwareBash.git
 
 Adds symbols indicating git status:
 
