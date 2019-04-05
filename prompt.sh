@@ -36,40 +36,40 @@ find_git_dirty() {
   else
 
     if [[ "$status" =~ "Untracked files" ]]; then
-      git_dirty+="${bldred}u${txtrst}"
+      git_dirty+="❗️"
     elif [[ "$status" =~ "Changes not staged for commit" ]]; then
-      git_dirty+="${bldred}m${txtrst}"
+      git_dirty+="🔺"
     fi
 
     if [[ "$status" =~ "Your branch is ahead of" ]]; then
       local num_a="$(git log --oneline @{u}.. 2> /dev/null | wc -l | tr -d ' ')"
-      git_dirty+="${bldcyn}+${num_a}${txtrst}"
+      git_dirty+="⏫+${num_a}"
     fi
 
     if [[ "$status" =~ "Your branch is behind" ]]; then
       local num_b="$(git log --oneline ..@{u} 2> /dev/null | wc -l | tr -d ' ')"
-      git_dirty+="${bldylw}-${num_b}${txtrst}"
+      git_dirty+="⏬-${num_b}"
     fi
 
     if [[ $"$status" =~ "Changes to be committed" ]]; then
-      git_dirty+="${bldgrn}∆${txtrst}"
+      git_dirty+="✳️ "
     fi
 
     if [[ $"$status" =~ "have diverged" ]]; then
-      git_dirty+="${bldred}!=${txtrst}"
+      git_dirty+="🔀"
     fi
 
     local GIT_DIR="$(git rev-parse --git-dir 2> /dev/null)"
 
     if [ -n $GIT_DIR ] && test -r $GIT_DIR/MERGE_HEAD; then
-      git_dirty+="${txtpur}⚡︎${txtrst}"
+      git_dirty+="🔄"
     fi
 
     if [[ "$status" =~ "Your branch is up to date with" ]] || \
        [[ "$status" =~ "Your branch is up-to-date with" ]] || \
        [[ "$status" =~ "nothing to commit" ]]; then
       if [ "$git_dirty" == "" ]; then
-        git_dirty+="${bldgrn}OK${txtrst}"
+        git_dirty+="✅"
       fi
     fi
 
