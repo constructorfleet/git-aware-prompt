@@ -73,9 +73,9 @@ find_git_dirty() {
       fi
     fi
 
-    local git_dirty_pfx="${txtwht}[${txtrst}"
-    local git_dirty_sfx="${txtwht}]${txtrst}"
-    git_status="${git_dirty_pfx}${git_dirty}${git_dirty_sfx}"
+    #local git_dirty_pfx="${txtwht}[${txtrst}"
+    #local git_dirty_sfx="${txtwht}]${txtrst}"
+    git_status="${git_dirty}:"
 
   fi
 }
