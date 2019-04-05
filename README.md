@@ -34,5 +34,5 @@ Then in your `~/.bash_profile` add these lines:
 And override `PS1` to look something like this including the vars `$git_branch` and `$git_dirty`
 
 ```
-    export PS1="\[$txtred\]\h\[$txtcyn\] \u:\[$txtrst\]\w\[$txtwht\]\[$txtrst\]:\[$txtpur\]\$git_branch\[$txtred\]\$git_status\[$txtrst\] "
+    export PS1="\[$txtred\]\h\[$txtcyn\] \u:\[$txtrst\]\w\[$txtwht\]\[$txtrst\]:\[$txtpur\]\$git_branch\[$txtrst\]\$git_status "
 ```
